@@ -1,0 +1,62 @@
+name:                vaultaire-collector-twitter
+version:             0.1.0.0
+synopsis:            Vaultaire collector for Twitter
+homepage:            https://github.com/anchor/vaultaire-collector-twitter
+license:             BSD3
+license-file:        LICENSE
+author:              Oswyn Brent
+maintainer:          oswyn.brent@anchor.com.au
+copyright:           2014 Anchor Systems and others
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.20
+
+library
+  hs-source-dirs:      lib
+  exposed-modules:     Vaultaire.Collectors.Twitter
+  other-modules:       Vaultaire.Collectors.Twitter.Options
+                       Vaultaire.Collectors.Twitter.Process
+                       Vaultaire.Collectors.Twitter.State
+                       Vaultaire.Collectors.Twitter.Types
+                       Paths_vaultaire_collector_twitter
+
+  build-depends:       base >= 4.7,
+                       marquise >= 2.8.2,
+                       vaultaire-common,
+                       mtl,
+                       monad-logger,
+                       bytestring,
+                       text,
+                       fast-logger,
+                       authenticate-oauth,
+                       aeson,
+                       optparse-applicative,
+                       attoparsec,
+                       http-client,
+                       http-client-tls,
+                       time,
+                       old-locale,
+                       unordered-containers,
+                       exceptions
+
+  default-language:    Haskell2010
+  ghc-options:         -O2
+                       -threaded
+                       -Wall
+                       -Wwarn
+                       -fwarn-tabs
+  ghc-prof-options:    -fprof-auto
+
+executable vaultaire-collector-twitter
+  hs-source-dirs:      src
+  main-is:             Main.hs
+  build-depends:       base >=4.7,
+                       vaultaire-collector-twitter
+
+  default-language:    Haskell2010
+  ghc-options:         -O2
+                       -threaded
+                       -Wall
+                       -Wwarn
+                       -fwarn-tabs
+  ghc-prof-options:    -fprof-auto
